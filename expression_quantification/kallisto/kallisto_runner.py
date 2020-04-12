@@ -28,11 +28,11 @@ def printt(label):
     return None
 
 # 0. user defined variables
-clean_fastq_dir='/proj/omics4tb2/alomana/projects/cdi/data/clean_fastq/'
-boots=640
-threads=64
-results_dir='/proj/omics4tb2/alomana/projects/cdi/results/kallisto.{}/'.format(boots)
-transcriptome_index='/proj/omics4tb2/alomana/projects/cdi/data/homo_sapiens/transcriptome.idx'
+clean_fastq_dir='/Users/alomana/corona/cdi/data/clean_fastq/'
+boots=100
+threads=8
+results_dir='/Users/alomana/corona/cdi/results/kallisto.{}/'.format(boots)
+transcriptome_index='/Users/alomana/corona/cdi/data/homo_sapiens/transcriptome.idx'
 strand_flag='--rf-stranded'
 
 # 1. recover labels
