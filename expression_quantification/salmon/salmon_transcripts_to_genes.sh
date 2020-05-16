@@ -1,5 +1,9 @@
 #!/bin/bash
 
+###
+### Modified version of  MMRF_CoMMpass_IA14_Methods.pdf 
+###
+
 ENST_TO_FILTER='/Volumes/omics4tb2/alomana/projects/cdi/data/mmrf_annotation/info/Homo_sapiens_GRCh37_74_ig_ENST_to_filter_out.tsv'
 ENSG_TO_ENST_MAP='/Volumes/omics4tb2/alomana/projects/cdi/data/mmrf_annotation/info/Homo_sapiens_GRCh37_74_ENSG_to_ENST_map.txt'
 
