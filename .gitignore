@@ -2,3 +2,13 @@
 expression_quantification/.ipynb_checkpoints/viz-checkpoint.ipynb
 expression_quantification/.ipynb_checkpoints/viz2-checkpoint.ipynb
 expression_quantification/umap.hv.pdf
+data/identifier_mappings.txt
+data/mutations/commonMutations.csv
+expression_merger/.ipynb_checkpoints/cdi_miner_results_picker-checkpoint.ipynb
+expression_merger/.ipynb_checkpoints/expression_merger-checkpoint.ipynb
+data/mutations/translocationsIA12.csv
+data/mutations/rareMutations.csv
+data/mutations/cytogenetics.csv
+gene_activity/.ipynb_checkpoints/gene_activity-checkpoint.ipynb
+gene_activity/.ipynb_checkpoints/gene_activity_original-checkpoint.ipynb
+gene_activity/__pycache__/miner_py3.cpython-37.pyc
