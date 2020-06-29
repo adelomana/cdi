@@ -58,10 +58,10 @@ def read_DEGs(DEGs, comparison, trend):
 # 0. use-defined variables
 #
 
-DESeq2_folder = '/Volumes/omics4tb2/alomana/projects/cdi/results/deseq2/unfiltered/'
-metadata_file = '/Volumes/omics4tb2/alomana/projects/cdi/data/metadata/metadata.txt'
+DESeq2_folder = '/Users/alopez/projects_isb/cdi/results/deseq2/unfiltered/'
+metadata_file = '/Users/alopez/projects_isb/cdi/data/metadata/metadata.txt'
 expression_file = DESeq2_folder + 'DESeq2_TPM_values.tsv'
-filtered_folder = '/Volumes/omics4tb2/alomana/projects/cdi/results/deseq2/filtered/'
+filtered_folder = '/Users/alopez/projects_isb/cdi/results/deseq2/filtered/'
 
 comparisons = {}
 comparisons['co_vs_mono_time_zero'] = [(13,14,15), (1,2,3)]
