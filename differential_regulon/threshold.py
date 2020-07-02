@@ -17,10 +17,10 @@ import matplotlib, matplotlib.pyplot
 ###
 # 0. user-defined variables
 ###
-results_folder = ''
+results_folder = '/Users/alopez/projects_isb/cdi/results/regulons/thresholds/'
 
-M = 25000   # number of genes in the regerence genome
-n = 1900    # number of DEGs in genome
+M = 51505-1   # number of genes in the regerence genome
+n = 1967      # number of DEGs in genome
 
 ###
 # 1. analysis
