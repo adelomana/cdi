@@ -13,3 +13,9 @@ gene_activity/.ipynb_checkpoints/gene_activity-checkpoint.ipynb
 gene_activity/.ipynb_checkpoints/gene_activity_original-checkpoint.ipynb
 gene_activity/__pycache__/miner_py3.cpython-37.pyc
 differential_regulon/.ipynb_checkpoints/differential_regulon_activity_analysis-checkpoint.ipynb
+.DS_Store
+differential_expression/.ipynb_checkpoints/quality_control_visualization-checkpoint.ipynb
+differential_expression/.Rhistory
+differential_expression/messages.txt
+differential_regulon/testing.txt
+expression_quantification/.ipynb_checkpoints/viz3-checkpoint.ipynb

@@ -1,6 +1,6 @@
 #if (!requireNamespace("BiocManager", quietly = TRUE))
 #  install.packages("BiocManager")
-#BiocManager::install("DESeq2")
+#BiocManager::install("tictoc")
 
 library(DESeq2)                
 library(tximport)         
@@ -18,11 +18,11 @@ library(tictoc)
 tic()
 
 # 0. user defined variables
-register(MulticoreParam(8))
+register(MulticoreParam(4))
 setwd("~/scratch/")
-salmon_dir = "/Users/alomana/backups/corona/cdi/results/salmon"
-metadata_file = '/Volumes/omics4tb2/alomana/projects/cdi/data/metadata/metadata.txt'
-results_dir = '/Volumes/omics4tb2/alomana/projects/cdi/results/deseq2/unfiltered/'
+salmon_dir = "/Users/alopez/projects_isb/cdi/results/expression/salmon"
+metadata_file = '/Users/alopez/projects_isb/cdi/data/metadata/metadata.txt'
+results_dir = '/Users/alopez/projects_isb/cdi/results/deseq2/unfiltered/'
 
 # 1. build annotation reference
 k = keys(EnsDb.Hsapiens.v86, keytype = "TXNAME")

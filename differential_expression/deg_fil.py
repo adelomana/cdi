@@ -17,22 +17,22 @@ def metadata_reader():
             v = line.split('\t')
             sample = v[0]
             metadata.append(sample)
-    
+
     return metadata
 
-def read_DEGs(DEGs, comparison, trend): 
+def read_DEGs(DEGs, comparison, trend):
 
     '''
     Returns a dictionary of DEGs.
     '''
 
     working_file = DESeq2_folder + comparison + '_' + trend + '.tsv'
-    
+
     with open(working_file, 'r') as f:
         next(f)
         for line in f:
             v = line.split('\t')
-            
+
             ensembl = v[0]
             gene_name = v[1]
             biotype = v[2]
@@ -45,7 +45,7 @@ def read_DEGs(DEGs, comparison, trend):
             info = (ensembl, gene_name, biotype, description, basemean, logFC, pvalue, adjusted)
 
             DEGs[comparison][trend].append(info)
-                    
+
     print('{} {} \t DEGs: {}'.format(comparison, trend, len(DEGs[comparison][trend])))
 
     return DEGs
@@ -76,14 +76,18 @@ comparisons['co_time_twentyfour_vs_time_zero'] = [(22,23,24), (13,14,15)]
 
 trend_tags = ['up', 'down']
 
+### suggested thresholds
+#expression_threshold = 2
+#log2_fc_threshold = 1
+#noise_threshold = 1/2
+
 expression_threshold = 2
-discrete_fc_threshold = 1
+log2_fc_threshold = 1
 noise_threshold = 1/2
 
 print('expression threshold: > {}'.format(expression_threshold))
-print('discrete log2FC: > {}'.format(discrete_fc_threshold))
+print('discrete log2FC: > {}'.format(log2_fc_threshold  ))
 print('noise threshold: > {}'.format(noise_threshold))
-
 
 #
 # 1. read data
@@ -102,19 +106,19 @@ for comparison in comparisons:
 # 1.2. define metadata
 print('define metadata')
 sample_IDs = metadata_reader()
-                
+
 # 1.2. define expression
 print('define expression')
 
 expression = {}
 for sample in sample_IDs:
     expression[sample] = {}
-    
+
 with open(expression_file, 'r') as f:
     next(f)
     for line in f:
         v = line.split('\t')
-        
+
         gene_name = v[0]
         v = [float(element) for element in v[1:]]
 
@@ -131,7 +135,7 @@ with open(expression_file, 'r') as f:
 print('filter DEGs')
 
 for comparison in DEGs:
-    for trend in trend_tags:                
+    for trend in trend_tags:
 
         # define sample and reference sample labels
         sample_labels = [sample_IDs[index-1] for index in comparisons[comparison][0]]
@@ -155,7 +159,7 @@ for comparison in DEGs:
 
             # filter 2: identify fold-changes using discrete values
             ###
-            ###            [round(x, epsilon)/epsilon ] + 1 
+            ###            [round(x, epsilon)/epsilon ] + 1
             ###  FC = abs  -------------------------------- > 1
             ###            [round(y, epsilon)/epsilon ] + 1
             ###
@@ -176,7 +180,7 @@ for comparison in DEGs:
             noise = numpy.max([rsem_ref, rsem_sam])
 
             # selection
-            if abs_log2FC < discrete_fc_threshold:
+            if abs_log2FC < log2_fc_threshold:
                 including = False
                 info = 'WARNING: small change gene discarded. Expression changes from {:.3f} ({}) to {:.3f} ({}), resulting in abs_log2FC {:.3f}. {}, {}, {}'.format(r, den, s, num, abs_log2FC, case[0], case[1], case[3])
                 print(info)
